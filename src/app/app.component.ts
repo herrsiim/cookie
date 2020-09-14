@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookiesService } from './cookies.service';
+import { ShopService } from './shop.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,15 @@ import { CookiesService } from './cookies.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   constructor(
-    public cookiesService: CookiesService
+    public cookiesService: CookiesService,
+    private shopService: ShopService
   ) {}
   
-  title = 'cookie';
+  ngOnInit() {
+    this.cookiesService.loadCookies();
+    this.shopService.loadShop();
+  }
 }

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { ShopService } from './shop.service';
+import { SaveService } from './save.service';
 import { ShopItem } from './models/shop-items';
 
 @Injectable({
@@ -15,17 +16,23 @@ export class CookiesService {
   private specialEventTimeout: number = 5; // Minutes
 
   constructor(
-    public shopService: ShopService
+    public shopService: ShopService,
+    private saveService: SaveService
   ) { }
 
+  loadCookies() {
+    this.cookies = this.saveService.loadCookies();
+  }
   /**
    * Clicking on a cookie will make cookies
    */
   makeCookie() {
     if (this.specialEventActivated) {
       this.cookies = this.cookies + (this.cursor * 2);
+      this.saveService.saveCookies(this.cookies);
     } else {
       this.cookies = this.cookies + this.cursor;
+      this.saveService.saveCookies(this.cookies);
     }
   }
 

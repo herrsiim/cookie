@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../shop.service';
 import { CookiesService } from '../cookies.service';
 import { ShopItem } from '../models/shop-items';
+import { SaveService } from '../save.service';
 
 @Component({
   selector: 'app-shop',
@@ -13,7 +14,8 @@ export class ShopComponent implements OnInit {
 
   constructor(
     public shopService: ShopService,
-    private cookiesService: CookiesService
+    private cookiesService: CookiesService,
+    private saveService: SaveService
   ) { }
 
   /**
@@ -63,6 +65,8 @@ export class ShopComponent implements OnInit {
       this.cookiesService.cookies = this.cookiesService.cookies - item.price;
       item.amount = item.amount + 1;
       item.price = Math.round(item.price * this.shopService.priceMultiplier);
+      this.saveService.saveCookies(this.cookiesService.cookies);
+      this.saveService.saveShop(this.shopService.passiveShopItems);
     }
   }
 }

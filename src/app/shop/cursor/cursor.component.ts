@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CookiesService } from "../../cookies.service";
 import { ShopService } from 'src/app/shop.service';
+import { SaveService } from 'src/app/save.service';
+
 
 @Component({
   selector: 'app-cursor',
@@ -12,7 +14,8 @@ export class CursorComponent {
 
   constructor(
     public cookiesService: CookiesService,
-    private shopService: ShopService
+    private shopService: ShopService,
+    private saveService: SaveService
   ) { }
 
   isDisabled() {
@@ -24,6 +27,7 @@ export class CursorComponent {
       this.cookiesService.cursor = this.cookiesService.cursor + 1;
       this.cookiesService.cookies = this.cookiesService.cookies - this.cookiesService.cursorPrice;
       this.cookiesService.cursorPrice = Math.round(this.cookiesService.cursorPrice * this.shopService.priceMultiplier);
+      this.saveService.saveCookies(this.cookiesService.cookies);
     }
   }
 }
