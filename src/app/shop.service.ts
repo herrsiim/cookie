@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { ShopItem } from './models/shop-items'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ShopService {
-  passiveShopItems: any = [
+  passiveShopItems: ShopItem[] = [
     {
       name: "Grandma",
       price: 50,
