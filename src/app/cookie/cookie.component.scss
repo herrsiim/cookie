@@ -1,14 +1,27 @@
+@import "../../variables.scss";
+
 :host {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 420px;
-    background: url('../../assets/img/bgBlue.jpg');
+    background: url("../../assets/img/bgBlue.jpg");
+
+    .wrap {
+        &:hover {
+            animation: scale 0.3s forwards;
+        }
+        &:active {
+            animation: bounce 0.2s;
+        }
+        transition: all 0.3s ease;
+    }
 
     img {
         width: 300px;
         height: 300px;
         cursor: pointer;
+        animation: spin 120s linear infinite;
     }
 }
