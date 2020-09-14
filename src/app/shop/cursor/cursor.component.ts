@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CookiesService } from "../../cookies.service";
 import { ShopService } from 'src/app/shop.service';
 import { SaveService } from 'src/app/save.service';
@@ -10,17 +10,13 @@ import { SaveService } from 'src/app/save.service';
   styleUrls: ['./cursor.component.scss']
 })
 
-export class CursorComponent implements OnInit {
+export class CursorComponent {
 
   constructor(
     public cookiesService: CookiesService,
     public shopService: ShopService,
     private saveService: SaveService
   ) { }
-
-  ngOnInit() {
-    this.cookiesService
-  }
 
   isDisabled() {
     return this.cookiesService.cookies < this.shopService.allShopItems.active.price ? true : false;
