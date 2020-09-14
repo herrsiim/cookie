@@ -6,6 +6,7 @@ import { CookieComponent } from './cookie/cookie.component';
 import { ShopComponent } from './shop/shop.component';
 import { CounterComponent } from './cookie/counter/counter.component';
 import { CursorComponent } from './shop/upgrades/cursor/cursor.component';
+import { GrannyComponent } from './shop/upgrades/granny/granny.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CursorComponent } from './shop/upgrades/cursor/cursor.component';
     CookieComponent,
     ShopComponent,
     CounterComponent,
-    CursorComponent
+    CursorComponent,
+    GrannyComponent
   ],
   imports: [
     BrowserModule
