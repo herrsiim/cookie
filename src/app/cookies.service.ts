@@ -15,7 +15,7 @@ export class CookiesService {
   ) { }
   
   makeCookie() {
-    this.cookies = (this.cookies + this.cursor);
+    this.cookies = (this.cookies + this.cursor) + 100;
   }
 }
  
