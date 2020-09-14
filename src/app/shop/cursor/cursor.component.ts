@@ -23,7 +23,7 @@ export class CursorComponent {
     if (this.cookiesService.cookies >= this.cookiesService.cursorPrice) {
       this.cookiesService.cursor = this.cookiesService.cursor + 1;
       this.cookiesService.cookies = this.cookiesService.cookies - this.cookiesService.cursorPrice;
-      this.cookiesService.cursorPrice = Math.round(this.cookiesService.cursorPrice * this.shopService.priceMultiplyer);
+      this.cookiesService.cursorPrice = Math.round(this.cookiesService.cursorPrice * this.shopService.priceMultiplier);
     }
   }
 }

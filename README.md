@@ -1,35 +1,8 @@
-1) Cookie pilt
-2) Küpsisele klõpsates saad juurde +1 küpsist
-3) Saad osta upgrade'i (1 klõps +1 lisa küpsist, kokku 2)
-4) Passive upgareds (klõpsab sinu eest)
-5) Kogu counter (Kui palju on teenitud, kui palju saab kulutada)
-6) Special event (Korra 2minuti jooksul, kogu toodang 2x)
+1) Add cookie for clicking
+2) Clicking on a cookie must add +1 cookie to the cookie bank
+3) Add an option to buy upgrade (cursor upgrade, 1 upgrade equals +1 more cookie produced)
+4) Add passive upgrades (will produce cookies once in a second)
+5) Cookie counter (how much have you made and can spend on shop items)
+6) Special event (once in every 5 minutes there will be all production 2x)
 7) State save on refreshing the page
-
-# Cookie
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+8) Price must be multiplied with price multiplied if one item has been bought

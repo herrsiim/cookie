@@ -28,7 +28,7 @@ export class ShopComponent implements OnInit {
    */
   calculateNewPrice(item: ShopItem): number {
     if (item.amount !== 0) {
-      return Math.round((item.amount * this.shopService.priceMultiplyer) + item.price);
+      return Math.round((item.amount * this.shopService.priceMultiplier) + item.price);
     } else {
       return item.price;
     }
@@ -60,7 +60,7 @@ export class ShopComponent implements OnInit {
     if (this.cookiesService.cookies >= item.price) {
       this.cookiesService.cookies = this.cookiesService.cookies - item.price;
       item.amount = item.amount + 1;
-      item.price = Math.round(item.price * this.shopService.priceMultiplyer);
+      item.price = Math.round(item.price * this.shopService.priceMultiplier);
     }
   }
 }
