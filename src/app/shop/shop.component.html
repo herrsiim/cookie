@@ -1,5 +1,5 @@
 <app-cursor></app-cursor>
-<div *ngFor="let item of shopService.passiveShopItems">
+<div *ngFor="let item of shopService.allShopItems.passive">
     <div (click)="buy(item)" [class.disabled]="isDisabled(item)" class="shop-item">
         <img [src]="buildImageUrl(item.img)" alt="">
         <div class="middle">

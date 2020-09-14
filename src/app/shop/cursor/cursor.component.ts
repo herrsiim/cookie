@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookiesService } from "../../cookies.service";
 import { ShopService } from 'src/app/shop.service';
 import { SaveService } from 'src/app/save.service';
@@ -10,24 +10,29 @@ import { SaveService } from 'src/app/save.service';
   styleUrls: ['./cursor.component.scss']
 })
 
-export class CursorComponent {
+export class CursorComponent implements OnInit {
 
   constructor(
     public cookiesService: CookiesService,
-    private shopService: ShopService,
+    public shopService: ShopService,
     private saveService: SaveService
   ) { }
 
+  ngOnInit() {
+    this.cookiesService
+  }
+
   isDisabled() {
-    return this.cookiesService.cookies < this.cookiesService.cursorPrice ? true : false;
+    return this.cookiesService.cookies < this.shopService.allShopItems.active.price ? true : false;
   }
 
   buyCursor() {
-    if (this.cookiesService.cookies >= this.cookiesService.cursorPrice) {
-      this.cookiesService.cursor = this.cookiesService.cursor + 1;
-      this.cookiesService.cookies = this.cookiesService.cookies - this.cookiesService.cursorPrice;
-      this.cookiesService.cursorPrice = Math.round(this.cookiesService.cursorPrice * this.shopService.priceMultiplier);
+    if (this.cookiesService.cookies >= this.shopService.allShopItems.active.price) {
+      this.shopService.allShopItems.active.amount = this.shopService.allShopItems.active.amount + 1;
+      this.cookiesService.cookies = this.cookiesService.cookies -this.shopService.allShopItems.active.price;
+      this.shopService.allShopItems.active.price = Math.round(this.shopService.allShopItems.active.price * this.shopService.priceMultiplier);
       this.saveService.saveCookies(this.cookiesService.cookies);
+      this.saveService.saveShop(this.shopService.allShopItems);
     }
   }
 }

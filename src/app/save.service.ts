@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ShopItem } from './models/shop-items';
+import { AllShopItems } from './models/shop-items';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class SaveService {
   constructor(
   ) { }
 
-  saveShop(items: ShopItem[]) {
+  saveShop(items: AllShopItems) {
     localStorage.setItem('shop', JSON.stringify(items));
   }
 

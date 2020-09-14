@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ShopItem } from './models/shop-items';
+import { ShopItem, AllShopItems } from './models/shop-items';
 import { SaveService } from './save.service';
 
 
@@ -23,8 +23,16 @@ export class ShopService {
   loadShop() {
     let loadedShopItems = this.saveService.loadShop();
     if (loadedShopItems !== null) {
-      this.passiveShopItems = loadedShopItems;
+      this.allShopItems = loadedShopItems;
     }
+  }
+
+  cursorItem: ShopItem = {
+    name: "Cursor",
+    price: 10,
+    amount: 1,
+    productivity: 1,
+    img: "cursor.png"
   }
 
   priceMultiplier: number = 1.1;
@@ -93,4 +101,9 @@ export class ShopService {
       img: "alchemy.png"
     },
   ]
+
+  public allShopItems: AllShopItems = {
+    active: this.cursorItem,
+    passive: this.passiveShopItems
+  }
 }

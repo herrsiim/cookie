@@ -5,3 +5,8 @@ export interface ShopItem {
     img: string;
     productivity: number;
 }
+
+export interface AllShopItems {
+    active: ShopItem,
+    passive: ShopItem[]
+}

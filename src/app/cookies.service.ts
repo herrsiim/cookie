@@ -9,8 +9,7 @@ import { ShopItem } from './models/shop-items';
 
 export class CookiesService {
   public cookies: number = 0;
-  public cursor: number = 1;
-  public cursorPrice: number = 10;
+
   public specialEventActivated: boolean = false;
   private specialEventDuration: number = 20; // Seconds
   private specialEventTimeout: number = 5; // Minutes
@@ -28,10 +27,10 @@ export class CookiesService {
    */
   makeCookie() {
     if (this.specialEventActivated) {
-      this.cookies = this.cookies + (this.cursor * 2);
+      this.cookies = this.cookies + (this.shopService.allShopItems.active.amount * 2);
       this.saveService.saveCookies(this.cookies);
     } else {
-      this.cookies = this.cookies + this.cursor;
+      this.cookies = this.cookies + this.shopService.allShopItems.active.amount;
       this.saveService.saveCookies(this.cookies);
     }
   }
@@ -53,6 +52,7 @@ export class CookiesService {
       }
     }
     this.cookies = this.cookies + producedCookies;
+    this.saveService.saveCookies(this.cookies);
   }
 
   /**
@@ -61,7 +61,7 @@ export class CookiesService {
    */
   makePassiveCookies() {
     setInterval(() => {
-      this.calculatePassiveProduction(this.shopService.passiveShopItems);
+      this.calculatePassiveProduction(this.shopService.allShopItems.passive);
     }, 1000);
   }
 
