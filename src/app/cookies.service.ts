@@ -14,11 +14,21 @@ export class CookiesService {
   constructor(
     public shopService: ShopService
   ) { }
-
+  
+  /**
+   * Clicking on a cookie will make cookies
+   */
   makeCookie() {
-    this.cookies = (this.cookies + this.cursor) + 100;
+    this.cookies = (this.cookies + this.cursor);
   }
 
+  /**
+   * This will calculate the passive cookie production.
+   * The for loop will go through all the items in the passiveShopItems 
+   * and will calculate full production by calculating (amount * productivity) 
+   * for all the items in the array.
+   * @param items passiveShopItems a.k.a items from the shop service 
+   */
   calculatePassiveProduction(items: ShopItem[]) {
     let producedCookies: number = 0;
     for (let shopItem of items) {
@@ -29,6 +39,10 @@ export class CookiesService {
     this.cookies = this.cookies + producedCookies;
   }
 
+  /**
+   * This is the intervall for passive production of the cookies.
+   * It's being always run on app startup, even if the productivity is 0 for all items
+   */
   makePassiveCookies() {
     setInterval(() => {
       this.calculatePassiveProduction(this.shopService.passiveShopItems);
