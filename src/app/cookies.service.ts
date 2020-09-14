@@ -11,7 +11,7 @@ export class CookiesService {
   public cursor: number = 1;
   public cursorPrice: number = 10;
   public specialEventActivated: boolean = false;
-  private specialEventDuration: number = 30; // Seconds
+  private specialEventDuration: number = 20; // Seconds
   private specialEventTimeout: number = 5; // Minutes
 
   constructor(
