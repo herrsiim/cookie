@@ -16,7 +16,7 @@ export class CursorComponent {
   ) { }
 
   isDisabled() {
-    return this.cookiesService.cookies < 11 ? true : false;
+    return this.cookiesService.cookies < this.cookiesService.cursorPrice ? true : false;
   }
 
   buyCursor() {

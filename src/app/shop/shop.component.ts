@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.cookiesService.makePassiveCookies();
   }
+
   /**
    * It will calculate the new price and round it
    * @param item shopItem
@@ -41,6 +42,7 @@ export class ShopComponent implements OnInit {
   buildImageUrl(imgName: string) {
     return `../../../../assets/img/${imgName}`;
   }
+  
   /**
    * Will check if user has enough cookies to buy the shop item
    * If not, the HTML element will be disabled

@@ -18,6 +18,6 @@ export class CookieComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cookiesService.startSpecialEventTimeout();
   }
-
 }
