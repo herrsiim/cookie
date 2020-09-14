@@ -1,2 +1,22 @@
 <app-cursor></app-cursor>
-<app-granny></app-granny>
+
+<div *ngFor="let item of shopService.passiveShopItems">
+    <div class="wrap">
+        <img [src]="buildImageUrl(item.img)" alt="">
+        <div class="middle">
+            <div class="name" [innerHTML]="item.name"></div>
+            <div class="cost" [innerHTML]="item.price"></div>
+        </div>
+        <div class="amount"[innerHTML]="item.amount"></div>
+    </div>
+</div>
+
+<!-- 
+<div class="wrap" (click)="buyCursor()" [class.disabled]="isDisabled()">
+    <img src="../../../../assets/img/cursor.png" alt="">
+    <div class="middle">
+        <div class="name">Cursor</div>
+        <div class="cost">10</div>
+    </div>
+    <div class="amount">{{cookiesService.cursor - 1}}</div>
+</div> -->

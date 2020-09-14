@@ -14,7 +14,7 @@ export class CookieComponent implements OnInit {
   ) { }
 
   cookieClick() {
-    this.cookiesService.addCookie();
+    this.cookiesService.makeCookie();
   }
 
   ngOnInit(): void {

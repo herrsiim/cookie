@@ -9,7 +9,7 @@ import { CookiesService } from 'src/app/cookies.service';
 export class GrannyComponent implements OnInit {
 
   constructor(
-    private cookiesService: CookiesService
+    public cookiesService: CookiesService
   ) { }
 
   ngOnInit(): void {
