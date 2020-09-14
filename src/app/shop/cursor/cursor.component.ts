@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CookiesService } from "../../cookies.service";
+import { ShopService } from 'src/app/shop.service';
 
 @Component({
   selector: 'app-cursor',
   templateUrl: './cursor.component.html',
   styleUrls: ['./cursor.component.scss']
 })
-export class CursorComponent implements OnInit {
+
+export class CursorComponent {
 
   constructor(
-    public cookiesService: CookiesService
+    public cookiesService: CookiesService,
+    private shopService: ShopService
   ) { }
 
   isDisabled() {
@@ -20,10 +23,7 @@ export class CursorComponent implements OnInit {
     if (this.cookiesService.cookies >= this.cookiesService.cursorPrice) {
       this.cookiesService.cursor = this.cookiesService.cursor + 1;
       this.cookiesService.cookies = this.cookiesService.cookies - this.cookiesService.cursorPrice;
+      this.cookiesService.cursorPrice = Math.round(this.cookiesService.cursorPrice * this.shopService.priceMultiplyer);
     }
   }
-
-  ngOnInit(): void {
-  }
-
 }

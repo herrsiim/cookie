@@ -13,6 +13,7 @@ import { ShopItem } from './models/shop-items'
  */
 
 export class ShopService {
+  priceMultiplyer: number = 1.1;
   passiveShopItems: ShopItem[] = [
     {
       name: "Grandma",
