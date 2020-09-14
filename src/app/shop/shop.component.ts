@@ -32,6 +32,7 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cookiesService.makePassiveCookies();
   }
 
 }

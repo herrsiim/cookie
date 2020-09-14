@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ShopService } from './shop.service';
+import { ShopItem } from './models/shop-items';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,24 @@ export class CookiesService {
   constructor(
     public shopService: ShopService
   ) { }
-  
+
   makeCookie() {
     this.cookies = (this.cookies + this.cursor) + 100;
   }
+
+  calculatePassiveProduction(items: ShopItem[]) {
+    let producedCookies: number = 0;
+    for (let shopItem of items) {
+      if (shopItem.amount !== 0) {
+        producedCookies = producedCookies + (shopItem.amount * shopItem.productivity)
+      }
+    }
+    this.cookies = this.cookies + producedCookies;
+  }
+
+  makePassiveCookies() {
+    setInterval(() => {
+      this.calculatePassiveProduction(this.shopService.passiveShopItems);
+    }, 1000);
+  }
 }
- 
