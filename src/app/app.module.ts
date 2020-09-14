@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { CookieComponent } from './cookie/cookie.component';
 import { ShopComponent } from './shop/shop.component';
 import { CounterComponent } from './cookie/counter/counter.component';
-import { CursorComponent } from './shop/upgrades/cursor/cursor.component';
+import { CursorComponent } from './shop/cursor/cursor.component';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookiesService } from "../../../cookies.service";
+import { CookiesService } from "../../cookies.service";
 
 @Component({
   selector: 'app-cursor',
