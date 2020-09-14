@@ -1,3 +1,11 @@
+1) Cookie pilt
+2) Küpsisele klõpsates saad juurde +1 küpsist
+3) Saad osta upgrade'i (1 klõps +1 lisa küpsist, kokku 2)
+4) Passive upgareds (klõpsab sinu eest)
+5) Kogu counter (Kui palju on teenitud, kui palju saab kulutada)
+6) Special event (Korra 2minuti jooksul, kogu toodang 2x)
+7) State save on refreshing the page
+
 # Cookie
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
